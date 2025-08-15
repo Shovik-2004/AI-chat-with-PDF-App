@@ -7,6 +7,7 @@ import {
   SignedIn,
   SignUpButton,
   UserButton,
+  SignInButton,
 } from '@clerk/nextjs';
 import './globals.css';
 
@@ -36,12 +37,16 @@ export default function RootLayout({
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
-          <section>
+          <section className="h-screen w-screen flex items-centre justify-center">
             <SignedOut>
+              <SignInButton />
               <SignUpButton />
             </SignedOut>
           </section>
-          <SignedIn>{children}</SignedIn>
+          <SignedIn>
+            <UserButton />
+            {children}
+          </SignedIn>
         </body>
       </html>
     </ClerkProvider>
